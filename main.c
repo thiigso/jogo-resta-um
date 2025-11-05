@@ -34,8 +34,11 @@ void InitializeGame(int matrix[ROWS][COLUMNS]){
     }
 }
 
-void CheckMove(){
-
+void CheckMove(int positionSelected[], int position[]){
+    printf("posSel 0 - %d posSel 1 - %d\n",positionSelected[0],positionSelected[1]);
+    positionSelected[0]++;
+    positionSelected[1]++;
+    printf("posSel 0 - %d posSel 1 - %d\n",positionSelected[0],positionSelected[1]);
 }
 
 
@@ -80,8 +83,14 @@ void PrintGame(int matrix[ROWS][COLUMNS],int position[],int status){
 
 int SelectPiece(int matrix[ROWS][COLUMNS], int position[], int status){
 
-    int key1, key2;
+    int key1, key2, positionSelected[2];
+    printf("vai printar o postion com o position antigo\n");
     PrintGame(matrix,position,status);
+
+    if(status == MOVING){ //Se eu tiver movendo alguma peça aqui salva a posição original selecionda
+        positionSelected[0] = position[0];
+        positionSelected[1] = position[1];
+    }
 
     do{
         key1 = _getch();
@@ -90,7 +99,7 @@ int SelectPiece(int matrix[ROWS][COLUMNS], int position[], int status){
 
         if(key1 == 13){
             if(status == MOVING){
-                CheckMove;
+                CheckMove(positionSelected, position);
             }
             return SELECTED;
         }
@@ -171,6 +180,7 @@ int main(){
         if(status == SELECTED)
             if(matrix[position[0]][position[1]] == FILLED){
                 status = MOVING;
+                printf("passou aqui\n");
                 SelectPiece(matrix,position,MOVING);
             }
             
