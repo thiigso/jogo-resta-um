@@ -217,7 +217,7 @@ int CheckMove(int matrix[ROWS][COLUMNS], int positionSelected[], int position[])
                     }
             }
         }
-        return VerifyEndGame(matrix);          //Verifica se o Jogo terminou e Retorna WIN/LOSE && Retorna RESET se: [Completou Jogada, Tentou colocar peça num espaço vazio]                 
+        return VerifyEndGame(matrix);          //Verifica se o Jogo terminou e Retorna WIN/LOSE && Retorna RESET se: [Completou Jogada, Tentou colocar peça num espaço vazio, ou invalido]                 
     }
 }
 
@@ -303,11 +303,11 @@ int SelectPiece(int matrix[ROWS][COLUMNS], int position[], int status){        /
 
 int main(){
     
-    //int matrix[ROWS][COLUMNS];
+    int matrix[ROWS][COLUMNS];
     int position[2] = {3,3}, status;
 
     //int matrix[7][7] = {{-1,-1,0,0,0,-1,-1},{-1,-1,0,0,0,-1,-1},{0,0,0,0,0,0,0},{0,0,1,1,0,0,0},{0,0,0,0,0,0,0},{-1,-1,0,0,0,-1,-1},{-1,-1,0,0,0,-1,-1}};
-    int matrix[7][7] = {{-1,-1,1,1,0,-1,-1},{-1,-1,0,0,0,-1,-1},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{-1,-1,0,0,0,-1,-1},{-1,-1,1,0,0,-1,-1}};
+    //int matrix[7][7] = {{-1,-1,1,1,0,-1,-1},{-1,-1,0,0,0,-1,-1},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{-1,-1,0,0,0,-1,-1},{-1,-1,1,0,0,-1,-1}};
     //int matrix[7][7] = {{-1,-1,0,0,0,-1,-1},{-1,-1,0,0,0,-1,-1},{1,0,0,0,0,0,0},{1,0,0,0,0,0,0},{1,0,0,1,1,0,1},{-1,-1,0,0,0,-1,-1},{-1,-1,1,0,0,-1,-1}};       //Teste para casos específicos de ganhar e perder no Resta Um.
     //int matrix[7][7] = {{-1,-1,0,1,1,-1,-1},{-1,-1,0,0,0,-1,-1},{1,0,0,0,0,0,1},{1,0,0,0,0,0,0},{1,0,1,0,0,0,0},{-1,-1,0,0,1,-1,-1},{-1,-1,0,1,0,-1,-1}};       //Para-se utilizar esses casos, deve-se comentar:
     //int matrix[7][7] = {{-1,-1,1,1,1,-1,-1},{-1,-1,0,0,0,-1,-1},{1,1,0,0,0,0,1},{0,0,0,0,0,0,0},{0,0,0,0,0,0,1},{-1,-1,1,0,0,-1,-1},{-1,-1,0,0,0,-1,-1}};       //FunçãoInitializeGame(matrix) linha 324   &&  Declaração da matriz[ROWS][COLUMS] linhas 306
@@ -321,7 +321,7 @@ int main(){
         if(answer == 's' || answer =='S'){
             while(getchar() != '\n');
 
-            //InitializeGame(matrix);
+            InitializeGame(matrix);
             position[0]=3; position[1]=3;    //Inicializa o Jogo
 
             do{
