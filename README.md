@@ -8,7 +8,7 @@ The objective of this code is to create a Peg Solitaire game (known in Portugues
 The 7x7 board is initialized in a cross shape, meaning the four corner positions are inaccessible.
 All accessible positions on the board start with pieces (value = 1), except for the center position, which is empty (value = 0).
 
-You can “capture” pieces by jumping one piece over another, but this move can only be horizontal or vertical, and it can only occur if the piece to be captured is exactly one position away from the selected piece.
+You can “capture” pieces by jumping one piece over another. Still, this move can only be horizontal or vertical, and it can only occur if the piece to be captured is exactly one position away from the selected piece.
 
 The main objective of the game is to have only one piece remaining.
 If that happens, the game ends and you win.
@@ -27,9 +27,9 @@ Steps:
 
 ## Functions in the Code
 
-CustomAbs: Returns the absolute value.
-InitializeGame: Initializes a traditional board.
-VerifyEndGame: Checks if the game has ended.
-PrintGame: Prints the board.
-CheckMove: Checks if a move is valid.
-SelectPiece: Moves and selects pieces.
+* CustomAbs: Returns the absolute value.
+* InitializeGame: Initializes a traditional board.
+* VerifyEndGame: Checks if the game has ended.
+* PrintGame: Prints the board.
+* CheckMove: Checks if a move is valid.
+* SelectPiece: Moves and selects pieces.
